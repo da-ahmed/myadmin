@@ -1,3 +1,62 @@
-<p>
-  account works!
-</p>
+
+
+<app-card [title]="'users'" [classHeader]="true" [blockClass]="'table-border-style'">
+  <div class="row">
+
+
+    <div class="col-md-12">
+
+      <div class="table-responsive">
+
+
+        <table id="mytable" class="table ">
+
+          <thead>
+
+          <th><input type="checkbox" id="checkall" /></th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Address</th>
+          <th>Email</th>
+          <th>Contact</th>
+          <th>Edit</th>
+
+          <th>Delete</th>
+          </thead>
+          <tbody>
+
+          <tr>
+            <td><input type="checkbox" class="checkthis" /></td>
+            <td>ahmed</td>
+            <td>barkouti</td>
+            <td>nabeul</td>
+            <td>gmail@gmail.com</td>
+            <td>+923335586757</td>
+            <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="fa fa-edit"></span></button></p></td>
+            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="delete_forever"></span></button></p></td>
+          </tr>
+
+          <tr>
+            <td><input type="checkbox" class="checkthis" /></td>
+            <td>MODI</td>
+            <td>MODI</td>
+            <td>RADES</td>
+            <td>realmodi@gmail.com</td>
+            <td>50797979</td>
+            <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="fa fa-edit"></span></button></p></td>
+            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="fa fa-trash"></span></button></p></td>
+          </tr>
+
+
+          </tbody>
+
+        </table>
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+</app-card>

@@ -26,7 +26,10 @@
         "../node_modules/ng2-toasty/style-default.css",
         "../node_modules/ng2-toasty/style-material.css",
         "styles.css",
-        "assets/css/custom.css"
+        "assets/css/custom.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.css",
+        "../node_modules/font-awesome/css/font-awesome.css"
+
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",

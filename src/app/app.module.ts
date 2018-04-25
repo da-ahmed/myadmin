@@ -16,6 +16,7 @@ import {ScrollModule} from './scroll/scroll.module';
 import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { AccountComponent } from './account/account.component';
+import { LstvehicleComponent } from './lstvehicle/lstvehicle.component';
 
 
 
@@ -28,6 +29,7 @@ import { AccountComponent } from './account/account.component';
     TitleComponent,
     VehicleComponent,
     AccountComponent,
+    LstvehicleComponent,
 
   ],
   imports: [

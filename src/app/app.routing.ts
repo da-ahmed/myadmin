@@ -4,6 +4,7 @@ import {AdminLayoutComponent} from './layouts/admin/admin-layout.component';
 import {AuthLayoutComponent} from './layouts/auth/auth-layout.component';
 import {VehicleComponent} from './vehicle/vehicle.component';
 import {AccountComponent} from './account/account.component';
+import {LstvehicleComponent} from './lstvehicle/lstvehicle.component';
 
 
 export const AppRoutes: Routes = [
@@ -26,7 +27,11 @@ export const AppRoutes: Routes = [
     },{
       path:'account',
       component: AccountComponent
-    }/*{
+    },{
+      path:'vehicle/list',
+      component: LstvehicleComponent
+    }
+    /*{
       path: 'vehicle',
       loadChildren: './vehicle/vehicle.module#VehiculeModule'
     }*/
