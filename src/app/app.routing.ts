@@ -5,6 +5,7 @@ import {AuthLayoutComponent} from './layouts/auth/auth-layout.component';
 import {VehicleComponent} from './vehicle/vehicle.component';
 import {AccountComponent} from './account/account.component';
 import {LstvehicleComponent} from './lstvehicle/lstvehicle.component';
+import {AuthGuard} from './guards/gard';
 
 
 export const AppRoutes: Routes = [
@@ -20,16 +21,16 @@ export const AppRoutes: Routes = [
       pathMatch: 'full'
     }, {
       path: 'dashboard',
-      loadChildren: './dashboard/dashboard.module#DashboardModule'
+      loadChildren: './dashboard/dashboard.module#DashboardModule',canActivate :[AuthGuard]
     },{
       path:'vehicle/add',
-      component: VehicleComponent
+      component: VehicleComponent,canActivate :[AuthGuard]
     },{
       path:'account',
-      component: AccountComponent
+      component: AccountComponent,canActivate :[AuthGuard]
     },{
       path:'vehicle/list',
-      component: LstvehicleComponent
+      component: LstvehicleComponent,canActivate :[AuthGuard]
     }
     /*{
       path: 'vehicle',

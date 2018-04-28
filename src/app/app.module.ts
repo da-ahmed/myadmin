@@ -17,7 +17,7 @@ import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { AccountComponent } from './account/account.component';
 import { LstvehicleComponent } from './lstvehicle/lstvehicle.component';
-
+import {AccountService} from './service/account.service';
 
 
 @NgModule({
