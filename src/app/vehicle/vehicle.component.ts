@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {AppComponent} from '../app.component';
+import {Http} from '@angular/http';
+import "rxjs/add/operator/map";
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-vehicle',
@@ -7,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VehicleComponent implements OnInit {
 
-  constructor() { }
+  vehiclescategorie;
+
+  constructor(private http: HttpClient) {
+
+    this.http.get('http://localhost:8091/categorie/liste').subscribe(data => {
+      console.log(data);this.vehiclescategorie=data;
+    });
+
+  }
 
   ngOnInit() {
+
+
   }
 
 }

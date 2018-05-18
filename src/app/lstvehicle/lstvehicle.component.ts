@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {AppComponent} from '../app.component';
+import {Http} from '@angular/http';
+import "rxjs/add/operator/map";
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-lstvehicle',
@@ -7,9 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LstvehicleComponent implements OnInit {
 
-  constructor() { }
+vehicles;
+  constructor( private http:HttpClient){
 
-  ngOnInit() {
+
   }
+
+
+deletevehicle(id)
+{
+  this.http.delete('http://localhost:8091/vehicle/delete/'+id).subscribe(data => {
+    console.log(data);
+  });
+}
+
+  ngOnInit() { this.http.get('http://localhost:8091/categorie/liste').subscribe(data => {
+    console.log(data);this.vehicles=data;
+  });
+  }
+
+
+
+
 
 }

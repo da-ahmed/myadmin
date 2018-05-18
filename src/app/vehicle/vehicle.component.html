@@ -4,7 +4,7 @@
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">immatricule</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" placeholder="l'immatriculation de vehicule" >
     </div>
   </div>
   <div class="form-group row">
@@ -19,30 +19,18 @@
       <input type="text" class="form-control" placeholder="Password input">
     </div>
   </div>
+
   <div class="form-group row">
-    <label class="col-sm-2 col-form-label">min passenger</label>
+    <label class="col-sm-2 col-form-label">Select Box</label>
     <div class="col-sm-10">
-      <input type="number" class="form-control">
+      <select name="select" class="form-control">
+        <option *ngFor="let categorie of vehiclescategorie">{{categorie.type}}</option>
+      </select>
     </div>
   </div>
-  <div class="form-group row">
-    <label class="col-sm-2 col-form-label">max passenger</label>
-    <div class="col-sm-10">
-      <input type="number" class="form-control">
-    </div>
-  </div>
-  <div class="form-group row">
-    <label class="col-sm-2 col-form-label">max luggage</label>
-    <div class="col-sm-10">
-      <input type="number" class="form-control">
-    </div>
-  </div>
-  <div class="form-group row">
-    <label class="col-sm-2 col-form-label">description</label>
-    <div class="col-sm-10">
-      <textarea rows="5" cols="5" class="form-control" placeholder="Default textarea"></textarea>
-    </div>
-  </div>
+
+
+
 </form>
 <div class="text-right">
   <button type="button"  class="btn btn-primary btn-lg">add vehicle</button>

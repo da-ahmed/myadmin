@@ -1,8 +1,9 @@
 import {Component, OnInit, ViewChild, ViewEncapsulation, ElementRef, AfterViewInit} from '@angular/core';
 import 'rxjs/add/operator/filter';
 import {state, style, transition, animate, trigger, AUTO_STYLE} from '@angular/animations';
-
+import {AuthService} from '../../service/auth.service';
 import { MenuItems } from '../../shared/menu-items/menu-items';
+import {Router} from '@angular/router';
 
 export interface Options {
   heading?: string;
@@ -46,8 +47,8 @@ export class AdminLayoutComponent implements OnInit {
   windowWidth: number;
 
   public htmlButton: string;
-
-  constructor(public menuItems: MenuItems) {
+localstorage=localStorage;
+  constructor(public menuItems: MenuItems,private authService : AuthService,private router:Router) {
     const scrollHeight = window.screen.height - 150;
     this.innerHeight = scrollHeight + 'px';
     this.windowWidth = window.innerWidth;
@@ -113,4 +114,11 @@ export class AdminLayoutComponent implements OnInit {
   onMobileMenu() {
     this.isCollapsedMobile = this.isCollapsedMobile === 'yes-block' ? 'no-block' : 'yes-block';
   }
+
+  onlogout(){
+  this.authService.logOut();
+  this.localstorage.removeItem('currentUser')
+
+  }
 }
+

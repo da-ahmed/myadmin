@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import  {JsonpModule} from '@angular/http';
 
 import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
@@ -17,7 +18,13 @@ import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { AccountComponent } from './account/account.component';
 import { LstvehicleComponent } from './lstvehicle/lstvehicle.component';
+import { LoginComponent } from './login/login.component';
+import {ForgotComponent} from './forgot/forgot.component';
+import {LockScreenComponent} from './lock-screen/lock-screen.component';
+import {AuthGuard} from './guards/gard';
 import {AccountService} from './service/account.service';
+import {AuthService} from './service/auth.service';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -30,6 +37,9 @@ import {AccountService} from './service/account.service';
     VehicleComponent,
     AccountComponent,
     LstvehicleComponent,
+    LoginComponent,
+    LockScreenComponent,
+    ForgotComponent
 
   ],
   imports: [
@@ -40,12 +50,13 @@ import {AccountService} from './service/account.service';
     RouterModule.forRoot(AppRoutes),
     FormsModule,
     HttpModule,
+    HttpClientModule,
     ScrollModule,
 
 
   ],
   exports: [ScrollModule],
-  providers: [
+  providers: [AuthGuard,AccountService,AuthService,
       { provide: LocationStrategy, useClass: PathLocationStrategy }
   ],
   bootstrap: [AppComponent]

@@ -97,9 +97,9 @@
                       <i class="ti-lock"></i> Lock Screen
                     </a>
                   </li>
-                  <li>
-                    <a [routerLink]="['/']">
-                      <i class="ti-layout-sidebar-left"></i> Logout
+                  <li >
+                    <a ng [routerLink]="['/']" (click)="onlogout()">
+                      <i class="ti-layout-sidebar-left" ></i> Logout
                     </a>
                   </li>
                 </ul>

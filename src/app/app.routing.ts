@@ -6,48 +6,50 @@ import {VehicleComponent} from './vehicle/vehicle.component';
 import {AccountComponent} from './account/account.component';
 import {LstvehicleComponent} from './lstvehicle/lstvehicle.component';
 import {AuthGuard} from './guards/gard';
+import {ForgotComponent} from './forgot/forgot.component';
+import {LockScreenComponent} from './lock-screen/lock-screen.component';
+import {LoginComponent} from './login/login.component';
 
 
 export const AppRoutes: Routes = [
 
 
   {
-  path: '',
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },{path:'',
   component: AdminLayoutComponent,
   children: [
-    {
-      path: '',
-      redirectTo: 'dashboard',
-      pathMatch: 'full'
-    }, {
+     {
       path: 'dashboard',
-      loadChildren: './dashboard/dashboard.module#DashboardModule',canActivate :[AuthGuard]
+      loadChildren: './dashboard/dashboard.module#DashboardModule'//, canActivate :[AuthGuard]
     },{
       path:'vehicle/add',
-      component: VehicleComponent,canActivate :[AuthGuard]
+      component: VehicleComponent//,canActivate :[AuthGuard]
     },{
       path:'account',
-      component: AccountComponent,canActivate :[AuthGuard]
+      component: AccountComponent//,canActivate :[AuthGuard]
     },{
       path:'vehicle/list',
-      component: LstvehicleComponent,canActivate :[AuthGuard]
+      component: LstvehicleComponent//,canActivate :[AuthGuard]
     }
-    /*{
-      path: 'vehicle',
-      loadChildren: './vehicle/vehicle.module#VehiculeModule'
-    }*/
+
 
   ]
-}, {
-  path: '',
-  component: AuthLayoutComponent,
-  children: [
-    {
-      path: 'authentication',
-      loadChildren: './authentication/authentication.module#AuthenticationModule'
-    }
-  ]
-}, {
+},
+
+  {   path:'login',
+      component:LoginComponent
+  },
+  {   path:'lock',
+    component:LockScreenComponent
+  },
+  {   path:'forgot',
+    component:ForgotComponent
+  },
+  {
   path: '**',
   redirectTo: 'error/404'
-}];
+}
+];

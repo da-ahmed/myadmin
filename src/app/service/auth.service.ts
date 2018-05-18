@@ -1,30 +1,43 @@
+
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map'
-
-
+import { Http, Headers, RequestOptions,Response} from '@angular/http';
+import {User} from '../models/user';
+import 'rxjs/add/operator/map';
+import {AppComponent} from "../app.component";
+import {Router} from '@angular/router';
 @Injectable()
 export class AuthService {
+  constructor(public http: Http) { }
 
-  constructor(private http: HttpClient) { }
+  public logIn(user: User){
 
-  login(username: string, password: string) {
-    return this.http.post<any>('/api/authenticate', { username: username, password: password })
-      .map(user => {
+    let headers = new Headers();
+    headers.append('Accept', 'application/json')
+    // creating base64 encoded String from user name and password
+    var base64Credential: string = btoa( user.username+ ':' + user.password);
+    headers.append("Authorization", "Basic " + base64Credential);
+
+    let options = new RequestOptions();
+    options.headers=headers;
+
+    return this.http.get(AppComponent.API_URL+"/account/login" ,   options)
+      .map((response: Response) => {
         // login successful if there's a jwt token in the response
-        if (user && user.token) {
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
+        let user = response.json().principal;// the returned user object is a principal object
+        if (user) {
+          // store user details  in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
-
-        return user;
       });
   }
 
-  logout() {
+  logOut() {
     // remove user from local storage to log user out
-    localStorage.removeItem('currentUser');
-  }
+    return this.http.post(AppComponent.API_URL+"logout",{})
+      .map((response: Response) => {
+        localStorage.clear();
+        //removeItem('currentUser');
+      });
 
+  }
 }
