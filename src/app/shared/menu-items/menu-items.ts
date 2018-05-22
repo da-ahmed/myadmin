@@ -64,7 +64,29 @@ const MENUITEMS = [
         state: 'transaction',
         name: 'transaction',
         type: 'link',
-        icon: 'ti-write'
+        icon: 'ti-control-shuffle'
+      },{
+        state: 'destination',
+        name: 'destinations',
+        type: 'sub',
+        icon: 'ti-control-shuffle',
+        children: [
+          {
+            state: 'add',
+            name: 'Ajouter une destination'
+          },
+          {
+            state: 'list',
+            name: 'ajouter des destination'
+          },
+
+        ]
+      },
+      {
+        state: 'search',
+        name: 'recherches',
+        type: 'link',
+        icon: 'ti-search'
       }
     ]
   }

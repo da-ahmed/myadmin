@@ -5,6 +5,8 @@ import {User} from '../models/user';
 import 'rxjs/add/operator/map';
 import {AppComponent} from "../app.component";
 import {Router} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
+import {tokenKey} from '@angular/core/src/view';
 @Injectable()
 export class AuthService {
   constructor(public http: Http) { }
@@ -27,6 +29,7 @@ export class AuthService {
         if (user) {
           // store user details  in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(user));
+          localStorage.setItem('token',base64Credential)
         }
       });
   }

@@ -25,6 +25,11 @@ import {AuthGuard} from './guards/gard';
 import {AccountService} from './service/account.service';
 import {AuthService} from './service/auth.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {FlashMessagesModule} from 'angular2-flash-messages';
+import { SearchsComponent } from './searchs/searchs.component';
+import { LsdestinationComponent } from './lsdestination/lsdestination.component';
+import { DestinationComponent } from './destination/destination.component';
+;
 
 
 @NgModule({
@@ -39,7 +44,14 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     LstvehicleComponent,
     LoginComponent,
     LockScreenComponent,
-    ForgotComponent
+    ForgotComponent,
+    SearchsComponent,
+    LsdestinationComponent,
+    DestinationComponent,
+
+
+
+
 
   ],
   imports: [
@@ -52,6 +64,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     HttpModule,
     HttpClientModule,
     ScrollModule,
+    FlashMessagesModule,
 
 
   ],

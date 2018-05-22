@@ -9,6 +9,9 @@ import {AuthGuard} from './guards/gard';
 import {ForgotComponent} from './forgot/forgot.component';
 import {LockScreenComponent} from './lock-screen/lock-screen.component';
 import {LoginComponent} from './login/login.component';
+import {DestinationComponent} from './destination/destination.component';
+import {LsdestinationComponent} from './lsdestination/lsdestination.component';
+import {SearchsComponent} from './searchs/searchs.component';
 
 
 export const AppRoutes: Routes = [
@@ -33,6 +36,15 @@ export const AppRoutes: Routes = [
     },{
       path:'vehicle/list',
       component: LstvehicleComponent//,canActivate :[AuthGuard]
+    },{
+      path:'destination/add',
+      component: DestinationComponent//,canActivate :[AuthGuard]
+    },{
+      path:'destination/list',
+      component:LsdestinationComponent//,canActivate :[AuthGuard]
+    },{
+      path:'search',
+      component:SearchsComponent//,canActivate :[AuthGuard]
     }
 
 
