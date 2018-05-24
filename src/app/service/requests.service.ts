@@ -19,8 +19,11 @@ export class RequestsService {
   }
 
   delete(url){
-    this.http.delete(url,this.tokenservice.getOption())
+   return this.http.delete(url,this.tokenservice.getOption())
   }
 
+  update(url,body) {
+    return this.http.post(url,body,this.tokenservice.getOption())
+  }
 }
 

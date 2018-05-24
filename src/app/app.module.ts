@@ -29,7 +29,8 @@ import {FlashMessagesModule} from 'angular2-flash-messages';
 import { SearchsComponent } from './searchs/searchs.component';
 import { LsdestinationComponent } from './lsdestination/lsdestination.component';
 import { DestinationComponent } from './destination/destination.component';
-;
+import { NgxSmartModalModule } from 'ngx-smart-modal';
+
 
 
 @NgModule({

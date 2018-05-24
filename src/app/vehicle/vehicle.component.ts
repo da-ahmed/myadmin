@@ -12,6 +12,8 @@ import {TokenService} from '../service/token.service';
 import {RequestsService} from '../service/requests.service';
 import {vehiculeCategorie} from '../models/vehiculeCategorie';
 
+
+
 @Component({
   selector: 'app-vehicle',
   templateUrl: './vehicle.component.html',
@@ -48,15 +50,14 @@ export class VehicleComponent implements OnInit {
 
 
     console.log(t);
-
     this.vehiculeCat.id_categorie=t
     this.vehicle.vehiculeCategorie=this.vehiculeCat;
      console.log(this.vehicle)
     this.reqservice.post('http://localhost:8091/vehicle/add',this.vehicle).subscribe(data =>{
       console.log(data)
     })
+    console.log(this.vehicle)
   }
-
 
 
 }

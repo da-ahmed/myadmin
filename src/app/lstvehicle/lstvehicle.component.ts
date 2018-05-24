@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {AppComponent} from '../app.component';
-import {Http} from '@angular/http';
+import {Headers, Http, RequestOptions} from '@angular/http';
 import "rxjs/add/operator/map";
-import {HttpClient} from '@angular/common/http';
+
 import {RequestsService} from '../service/requests.service';
 import {TokenService} from '../service/token.service';
+
+import {Vehicle} from '../models/Vehicle';
 
 @Component({
   selector: 'app-lstvehicle',
@@ -14,23 +16,30 @@ import {TokenService} from '../service/token.service';
 })
 export class LstvehicleComponent implements OnInit {
 
-vehicles;
-  constructor( private request:RequestsService){
+  vehicles;
+  vehicle: Vehicle=new Vehicle();
+  closeResult: string;
+  constructor(private tolen:TokenService, private request:RequestsService,private http:Http){}
 
 
-  }
 
-
-deletevehicle(id)
-{
-
-}
 
   ngOnInit() {
-    this.request.get('http://localhost:8091/categorie/liste').subscribe(data => {
+    this.request.get('http://localhost:8091/vehicle/liste').subscribe(data => {
     console.log(data);this.vehicles=data.json();
-  });
+    });
   }
+
+
+  deletevehicle(id) {
+    this.vehicle.id_vehicle=id
+    this.request.post('http://localhost:8091/vehicle/delete',this.vehicle).subscribe()
+   this.ngOnInit();
+    this.ngOnInit();
+
+  }
+
+
 
 
 
