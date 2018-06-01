@@ -22,7 +22,6 @@ import { LoginComponent } from './login/login.component';
 import {ForgotComponent} from './forgot/forgot.component';
 import {LockScreenComponent} from './lock-screen/lock-screen.component';
 import {AuthGuard} from './guards/gard';
-import {AccountService} from './service/account.service';
 import {AuthService} from './service/auth.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FlashMessagesModule} from 'angular2-flash-messages';
@@ -30,6 +29,14 @@ import { SearchsComponent } from './searchs/searchs.component';
 import { LsdestinationComponent } from './lsdestination/lsdestination.component';
 import { DestinationComponent } from './destination/destination.component';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
+
+import { UpadatevehicleComponent } from './upadatevehicle/upadatevehicle.component';
+import {DataService} from './service/data.service';
+import {RequestsService} from './service/requests.service';
+import {TokenService} from './service/token.service';
+import { LstcompteComponent } from './lstcompte/lstcompte.component';
+import { LstinvcompteComponent } from './lstinvcompte/lstinvcompte.component';
+import { UpdatecompteComponent } from './updatecompte/updatecompte.component';
 
 
 
@@ -49,6 +56,10 @@ import { NgxSmartModalModule } from 'ngx-smart-modal';
     SearchsComponent,
     LsdestinationComponent,
     DestinationComponent,
+    UpadatevehicleComponent,
+    LstcompteComponent,
+    LstinvcompteComponent,
+    UpdatecompteComponent,
 
 
 
@@ -68,9 +79,10 @@ import { NgxSmartModalModule } from 'ngx-smart-modal';
     FlashMessagesModule,
 
 
+
   ],
   exports: [ScrollModule],
-  providers: [AuthGuard,AccountService,AuthService,
+  providers: [AuthGuard,AuthService,DataService,RequestsService,TokenService,
       { provide: LocationStrategy, useClass: PathLocationStrategy }
   ],
   bootstrap: [AppComponent]

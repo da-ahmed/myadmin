@@ -12,6 +12,10 @@ import {LoginComponent} from './login/login.component';
 import {DestinationComponent} from './destination/destination.component';
 import {LsdestinationComponent} from './lsdestination/lsdestination.component';
 import {SearchsComponent} from './searchs/searchs.component';
+import {UpadatevehicleComponent} from './upadatevehicle/upadatevehicle.component';
+import {LstcompteComponent} from './lstcompte/lstcompte.component';
+import {LstinvcompteComponent} from './lstinvcompte/lstinvcompte.component';
+import {UpdatecompteComponent} from './updatecompte/updatecompte.component';
 
 
 export const AppRoutes: Routes = [
@@ -25,14 +29,23 @@ export const AppRoutes: Routes = [
   component: AdminLayoutComponent,
   children: [
      {
-      path: 'dashboard',
-      loadChildren: './dashboard/dashboard.module#DashboardModule'//, canActivate :[AuthGuard]
+       path:'',
+       component: LstvehicleComponent//,canActivate :[AuthGuard]
     },{
       path:'vehicle/add',
       component: VehicleComponent//,canActivate :[AuthGuard]
     },{
-      path:'account',
+      path:'account/list',
+      component: LstcompteComponent//,canActivate :[AuthGuard]
+    },{
+      path:'account/add',
       component: AccountComponent//,canActivate :[AuthGuard]
+    },{
+      path:'account/invalid',
+      component: LstinvcompteComponent//,canActivate :[AuthGuard]
+    },{
+      path:'account/update',
+      component: UpdatecompteComponent//,canActivate :[AuthGuard]
     },{
       path:'vehicle/list',
       component: LstvehicleComponent//,canActivate :[AuthGuard]
@@ -45,6 +58,9 @@ export const AppRoutes: Routes = [
     },{
       path:'search',
       component:SearchsComponent//,canActivate :[AuthGuard]
+    },{
+      path:'vehicle/update',
+      component:UpadatevehicleComponent //,canActivate :[AuthGuard]
     }
 
 

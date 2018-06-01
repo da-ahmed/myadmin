@@ -25,10 +25,10 @@ user: User=new User();
 
     this.authService.logIn(this.user)
       .subscribe(data=>{
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/vehicle/list']);
         },err=>{
           this.errorMessage="error :  Username or password is incorrect";
-        this._flashMessagesService.show("error :  Username or password is incorrect", { cssClass: 'alert-success', timeout: 6000 });
+        this._flashMessagesService.show("erreur: nom d'utilisateur ou mot de passe incorrect", { cssClass: 'alert-danger', timeout: 3000 });
         }
       )
   }

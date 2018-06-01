@@ -11,6 +11,7 @@ import {tokenKey} from '@angular/core/src/view';
 import {TokenService} from '../service/token.service';
 import {RequestsService} from '../service/requests.service';
 import {vehiculeCategorie} from '../models/vehiculeCategorie';
+import {FlashMessagesService} from 'angular2-flash-messages';
 
 
 
@@ -28,9 +29,10 @@ export class VehicleComponent implements OnInit {
 
   vehicle: Vehicle=new Vehicle();
   vehiculeCat :vehiculeCategorie=new vehiculeCategorie()
+id:number;
+  errorMessage:String;
 
-
-  constructor(private reqservice:RequestsService) {
+  constructor(private reqservice:RequestsService,private _flashMessagesService: FlashMessagesService) {
 
     this.reqservice.get('http://localhost:8091/categorie/liste').subscribe(data => {
       console.log(data);this.vehiclescategorie=data.json();
@@ -45,19 +47,32 @@ export class VehicleComponent implements OnInit {
   }
 
 
-  addvehicle(t)
+  addvehicle(id)
   {
-
-
-    console.log(t);
-    this.vehiculeCat.id_categorie=t
+    this.vehiculeCat.id_categorie=id
     this.vehicle.vehiculeCategorie=this.vehiculeCat;
      console.log(this.vehicle)
     this.reqservice.post('http://localhost:8091/vehicle/add',this.vehicle).subscribe(data =>{
       console.log(data)
-    })
-    console.log(this.vehicle)
+    });
+    console.log(this.vehicle);
   }
+
+
+  ajou(t)
+  {
+    this.vehiculeCat.id_categorie=t
+    this.vehicle.vehiculeCategorie=this.vehiculeCat;
+    console.log(this.vehicle)
+    this.reqservice.post('http://localhost:8091/vehicle/add',this.vehicle).subscribe(data =>{
+      console.log(data)
+    },err=>{
+      this.errorMessage="error :  erreur: matricule existe déjà";
+      this._flashMessagesService.show(this.errorMessage.toString(), { cssClass: 'alert-danger', timeout: 3000 });
+    })
+    console.log(this.vehicle);
+  }
+
 
 
 }

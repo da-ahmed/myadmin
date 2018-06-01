@@ -1,20 +1,20 @@
 
 
-
-
 <!-- Basic table card start -->
-<app-card [title]="'Basic table'" [classHeader]="false" [blockClass]="'table-border-style'">
+<app-card [title]="'Basic table'" [classHeader]="false" [blockClass]="'table-border-style'" >
   <span class="code-header">use class <code>table</code> inside table element</span>
-  <div class="table-responsive">
-    <table class="table">
+  <div class="table-responsive" style="min-height:500px">
+    <table class="table" >
       <thead>
       <tr>
 
         <th>immatricule</th>
         <th>model</th>
-        <th>contact_Info</th>
+        <th>contact Information</th>
+        <th>categorie véhicule</th>
         <th>modifier</th>
         <th>suprimer</th>
+
       </tr>
       </thead>
       <tbody>
@@ -24,8 +24,9 @@
         <td>{{vehicle.immatricule}}</td>
         <td>{{vehicle.model}}</td>
         <td>{{vehicle.contact_Info }}</td>
-        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" (click)="deletevehicle(vehicle.id_vehicle)"  data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="fa fa-edit"></span></button></p></td>
-        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs"  (click)="open(content)" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="fa fa-trash"></span></button></p></td>
+        <td>{{vehicle.vehiculeCategorie.type}}</td>
+        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs"  (click)="updatevehicle(vehicle)" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="fa fa-edit"></span></button></p></td>
+        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs"   (click)="deletevehicle(vehicle.id_vehicle)" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="fa fa-trash"></span></button></p></td>
       </tr>
 
       </tbody>
@@ -33,5 +34,6 @@
   </div>
 </app-card>
 <!-- Basic table card end -->
+
 
 

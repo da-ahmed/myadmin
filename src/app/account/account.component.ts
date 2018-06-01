@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AccountService} from '../service/account.service';
+import {RequestsService} from '../service/requests.service';
+import {Client} from '../models/Client';
+
 
 @Component({
   selector: 'app-account',
@@ -7,10 +9,18 @@ import {AccountService} from '../service/account.service';
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit {
-
-  constructor(public accountservice:AccountService) { }
+  client: Client=new Client();
+  constructor(private request:RequestsService) { }
 
   ngOnInit() {
   }
 
+
+
+  addclient()
+  {
+    console.log(this.client)
+this.request.post('http://localhost:8091/client/add',this.client).subscribe(data=>console.log(data));
+
+  }
 }

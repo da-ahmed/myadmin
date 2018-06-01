@@ -1,62 +1,56 @@
 
 
-<app-card [title]="'users'" [classHeader]="true" [blockClass]="'table-border-style'">
-  <div class="row">
 
 
-    <div class="col-md-12">
+<app-card >
+  <flash-messages></flash-messages>
 
-      <div class="table-responsive">
-
-
-        <table id="mytable" class="table ">
-
-          <thead>
-
-          <th><input type="checkbox" id="checkall" /></th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Address</th>
-          <th>Email</th>
-          <th>Contact</th>
-          <th>Edit</th>
-
-          <th>Delete</th>
-          </thead>
-          <tbody>
-
-          <tr>
-            <td><input type="checkbox" class="checkthis" /></td>
-            <td>ahmed</td>
-            <td>barkouti</td>
-            <td>nabeul</td>
-            <td>gmail@gmail.com</td>
-            <td>+923335586757</td>
-            <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="fa fa-edit"></span></button></p></td>
-            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="delete_forever"></span></button></p></td>
-          </tr>
-
-          <tr>
-            <td><input type="checkbox" class="checkthis" /></td>
-            <td>MODI</td>
-            <td>MODI</td>
-            <td>RADES</td>
-            <td>realmodi@gmail.com</td>
-            <td>50797979</td>
-            <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="fa fa-edit"></span></button></p></td>
-            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="fa fa-trash"></span></button></p></td>
-          </tr>
-
-
-          </tbody>
-
-        </table>
-
-
-
-
+  <form #addvehicle="ngForm" (ngSubmit)="addclient()">
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Email d'utilisateur</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="tapez email de client" name="username" required [(ngModel)]="client.username">
       </div>
     </div>
-  </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">mot de passe</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" placeholder="tapez le mot de passe  client" name="username" required [(ngModel)]="client.password" >
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">nom </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="tapez le nom de client " name="username" required [(ngModel)]="client.nom" >
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">prenom</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="tapez le prenom de client" name="username" required [(ngModel)]="client.prenom">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">adresse</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="tapez l'adresse de client" name="username" required [(ngModel)]="client.adresse" >
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">numero telephone</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="Taper le numero telephone de client" name="username" required [(ngModel)]="client.numTel">
+      </div>
+    </div>
+
+
+
+
+    <div class="text-right">
+      <button type="submit"  class="btn btn-primary btn-lg" >ajouter</button>
+    </div>
+
+  </form>
 
 </app-card>
+

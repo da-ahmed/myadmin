@@ -28,48 +28,7 @@
               </li>
             </ul>
             <ul [@mobileMenuTop]="isCollapsedMobile" class="nav-right" [ngClass]="isCollapsedMobile">
-              <li class="header-notification">
-                <a href="javascript:;">
-                  <i class="ti-bell"></i>
-                  <span class="badge">5</span>
-                </a>
-                <ul class="show-notification">
-                  <li>
-                    <h6>Notifications</h6>
-                    <label class="label label-danger">New</label>
-                  </li>
-                  <li>
-                    <div class="media">
-                      <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
-                      <div class="media-body">
-                        <h5 class="notification-user">notif 1</h5>
-                        <p class="notification-msg">message 1</p>
-                        <span class="notification-time">30 minutes ago</span>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media">
-                      <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
-                      <div class="media-body">
-                        <h5 class="notification-user">notif 2</h5>
-                        <p class="notification-msg">message 2</p>
-                        <span class="notification-time">20 minutes ago</span>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media">
-                      <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
-                      <div class="media-body">
-                        <h5 class="notification-user">notif 3</h5>
-                        <p class="notification-msg">message 3</p>
-                        <span class="notification-time">30 minutes ago</span>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </li>
+
               <li class="user-profile header-notification">
                 <a [routerLink]="['/']">
                   <img src="assets/images/user.png" alt="User-Profile-Image">
@@ -77,21 +36,8 @@
                   <i class="ti-angle-down"></i>
                 </a>
                 <ul class="show-notification profile-notification">
-                  <li>
-                    <a href="javascript:">
-                      <i class="ti-settings"></i> Settings
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:">
-                      <i class="ti-user"></i> Profile
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:">
-                      <i class="ti-email"></i> My Messages
-                    </a>
-                  </li>
+
+
                   <li>
                     <a [routerLink]="['/authentication/lock-screen']" target="_blank">
                       <i class="ti-lock"></i> Lock Screen

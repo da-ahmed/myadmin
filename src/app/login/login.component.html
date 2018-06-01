@@ -15,32 +15,20 @@
 
 
               <form (ngSubmit)="login()">
-                <p class="text-inverse b-b-default text-left p-b-5">Sign in </p>
+                <p class="text-inverse b-b-default text-left p-b-5">Connexion</p>
                 <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Username" name="username" [(ngModel)]="user.username"   pattern="[^ @]*@[^ @]*" required >
+                  <input type="text" class="form-control" placeholder="Nom d'utilisateur" name="username" [(ngModel)]="user.username"   pattern="[^ @]*@[^ @]*" required >
                   <span class="md-line"></span>
                 </div>
                 <div class="input-group">
-                  <input type="password" class="form-control" placeholder="password" name="password" [(ngModel)]="user.password" #password="ngModel" required >
+                  <input type="password" class="form-control" placeholder="mot de passe" name="password" [(ngModel)]="user.password" #password="ngModel" required >
                   <span class="md-line"></span>
                 </div>
                 <div class="row m-t-25 text-left">
-                  <div class="col-sm-6 col-xs-12">
-                    <div class="checkbox-fade fade-in-primary">
-                      <label>
-                        <input type="checkbox" value="">
-                        <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
-                        <span class="text-inverse">Remember me</span>
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-xs-12 forgot-phone text-right">
-                    <a [routerLink]="['/forgot']" class="text-right f-w-600 text-inverse"> Forget Password?</a>
-                  </div>
                 </div>
                 <div class="row m-t-30">
                   <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">LOGIN</button>
+                    <button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Connexion</button>
                   </div>
                 </div>
               </form>

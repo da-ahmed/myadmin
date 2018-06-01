@@ -1,25 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Output,EventEmitter} from '@angular/core';
 import {AppComponent} from '../app.component';
 import {Headers, Http, RequestOptions} from '@angular/http';
 import "rxjs/add/operator/map";
-
 import {RequestsService} from '../service/requests.service';
 import {TokenService} from '../service/token.service';
-
 import {Vehicle} from '../models/Vehicle';
+import {Router} from '@angular/router';
+import {DataService} from '../service/data.service';
+
 
 @Component({
   selector: 'app-lstvehicle',
   templateUrl: './lstvehicle.component.html',
   styleUrls: ['./lstvehicle.component.css'],
-  providers:[RequestsService,TokenService]
+
 })
 export class LstvehicleComponent implements OnInit {
 
+  vehiclescategorie;
   vehicles;
   vehicle: Vehicle=new Vehicle();
   closeResult: string;
-  constructor(private tolen:TokenService, private request:RequestsService,private http:Http){}
+  constructor( private request:RequestsService,private data:DataService,private router:Router){
+    this.request.get('http://localhost:8091/categorie/liste').subscribe(data => {
+      console.log(data);this.vehiclescategorie=data.json();
+    });
+  }
 
 
 
@@ -42,7 +48,13 @@ export class LstvehicleComponent implements OnInit {
 
 
 
+  updatevehicle(vehicle){
+ this.vehicle=vehicle;
+    this.data.changeMessage(this.vehicle)
 
+    this.router.navigate(['/vehicle/update'])
+  }
 
 
 }
+

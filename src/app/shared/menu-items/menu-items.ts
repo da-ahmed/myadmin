@@ -33,17 +33,26 @@ const MENUITEMS = [
   {
     label: 'Menu',
     main: [
-      {
-        state: 'dashboard',
-        name: 'Dashboard',
-        type: 'link',
-        icon: 'ti-home'
-      },
+
       {
         state: 'account',
         name: 'Comptes',
-        type: 'link',
-        icon: 'ti-user'
+        type: 'sub',
+        icon: 'ti-user',
+        children: [
+          {
+            state: 'list',
+            name: 'liste des comptes valide'
+          },{
+            state: 'add',
+            name: 'Ajouter un véhicule'
+          }, {
+            state: 'invalid',
+            name: 'valider un comptes'
+          }
+
+        ]
+
       },{
         state: 'vehicle',
         name: 'vehicule',
@@ -51,12 +60,26 @@ const MENUITEMS = [
         icon: 'ti-car',
         children: [
           {
-            state: 'add',
-            name: 'Ajouter un véhicule'
-          },
-          {
             state: 'list',
             name: 'liste des vehicules'
+          },{
+            state: 'add',
+            name: 'Ajouter un véhicule'
+          }
+
+        ]
+      },{
+        state: 'destination',
+        name: 'destinations',
+        type: 'sub',
+        icon: 'ti-control-shuffle',
+        children: [
+          {
+            state: 'list',
+            name: 'ajouter des destination'
+          },{
+            state: 'add',
+            name: 'Ajouter une destination'
           },
 
         ]
@@ -65,22 +88,6 @@ const MENUITEMS = [
         name: 'transaction',
         type: 'link',
         icon: 'ti-control-shuffle'
-      },{
-        state: 'destination',
-        name: 'destinations',
-        type: 'sub',
-        icon: 'ti-control-shuffle',
-        children: [
-          {
-            state: 'add',
-            name: 'Ajouter une destination'
-          },
-          {
-            state: 'list',
-            name: 'ajouter des destination'
-          },
-
-        ]
       },
       {
         state: 'search',
