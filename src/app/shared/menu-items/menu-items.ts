@@ -48,14 +48,14 @@ const MENUITEMS = [
             name: 'Ajouter un véhicule'
           }, {
             state: 'invalid',
-            name: 'valider un comptes'
+            name: 'valider un compte'
           }
 
         ]
 
       },{
         state: 'vehicle',
-        name: 'vehicule',
+        name: 'véhicule',
         type: 'sub',
         icon: 'ti-car',
         children: [
@@ -72,15 +72,15 @@ const MENUITEMS = [
         state: 'destination',
         name: 'destinations',
         type: 'sub',
-        icon: 'ti-control-shuffle',
+        icon: 'ti-flag',
         children: [
           {
             state: 'list',
-            name: 'ajouter des destination'
+            name: 'liste des destinations '
           },{
             state: 'add',
             name: 'Ajouter une destination'
-          },
+          }
 
         ]
       },{

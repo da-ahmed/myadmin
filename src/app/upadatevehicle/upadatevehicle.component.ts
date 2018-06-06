@@ -4,6 +4,8 @@ import {Vehicle} from '../models/Vehicle';
 import {RequestsService} from '../service/requests.service';
 import {vehiculeCategorie} from '../models/vehiculeCategorie';
 import {Router} from '@angular/router';
+import {FlashMessagesService} from 'angular2-flash-messages';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-upadatevehicle',
@@ -12,14 +14,23 @@ import {Router} from '@angular/router';
 })
 export class UpadatevehicleComponent implements OnInit {
   vehicleup : any;
+  rForm : FormGroup;
 vehicle:Vehicle=new Vehicle();
   vehiclescategorie :any [];
   vehiculeCat :vehiculeCategorie=new vehiculeCategorie()
+  errorMessage
 
-  constructor(private data:DataService,private reqservice :RequestsService,private router :Router) {
+  constructor(private data:DataService,private reqservice :RequestsService,private router :Router,private _flashMessagesService: FlashMessagesService, private fb: FormBuilder) {
     this.reqservice.get('http://localhost:8091/categorie/liste').subscribe(data => {
       console.log(data);this.vehiclescategorie=data.json();
     });
+
+    this.rForm = fb.group({
+      'immatricule': [null, Validators.compose([Validators.required])],
+      'model': [null, Validators.compose([Validators.required])],
+      'contact': [null, Validators.compose([Validators.required,])],
+
+    })
   }
 
   ngOnInit() {
@@ -36,8 +47,14 @@ console.log(this.vehicle);
     this.vehicle.vehiculeCategorie=this.vehiculeCat;
     console.log(this.vehicle)
     this.reqservice.post('http://localhost:8091/vehicle/add',this.vehicle).subscribe()
-    this.router.navigate(['/vehicle/list'])
+    this.errorMessage="véhicule modifié avec succès";
+    this._flashMessagesService.show(this.errorMessage.toString(), { cssClass: 'alert-success', timeout: 3000 });
 
   }
+
+
+
+
+
 
 }

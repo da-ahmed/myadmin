@@ -1,3 +1,39 @@
-<p>
-  searchs works!
-</p>
+<app-card [title]="'table des recherches '" [classHeader]="false" [blockClass]="'table-border-style'" >
+  <span class="code-header">use class <code>table</code> inside table element</span>
+  <div class="table-responsive">
+    <table class="table" >
+      <thead>
+      <tr>
+
+        <th>Date de recherche</th>
+        <th>Aéroport de depart</th>
+        <th>Ville d'arriver</th>
+        <th>Nombre des adultes</th>
+        <th>Nombre des enfants</th>
+        <th>Nombre des bébés</th>
+        <th>Nom de client</th>
+
+
+
+      </tr>
+      </thead>
+      <tbody>
+
+
+
+      <tr *ngFor="let s of searchs">
+        <td>{{s.dateQuery}}</td>
+        <td>{{s.from.nom}}</td>
+        <td>{{s.to.nom}}</td>
+        <td>{{s.adult}}</td>
+        <td>{{s.children}}</td>
+        <td>{{s.infant}}</td>
+        <td>{{s.clientUsername}}</td>
+      </tr>
+
+
+      </tbody>
+    </table>
+  </div>
+</app-card>
+<!-- Basic table card end -->

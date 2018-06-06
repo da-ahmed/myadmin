@@ -5,49 +5,67 @@
 <app-card >
   <flash-messages></flash-messages>
 
-  <form #addvehicle="ngForm" (ngSubmit)="addclient()">
-    <div class="form-group row">
-      <label class="col-sm-2 col-form-label">Email d'utilisateur</label>
+  <form [formGroup]="rForm" class="form-horizontal"  (ngSubmit)="addclient()">
+
+    <div class="form-group row" >
+      <label class="col-sm-2 col-form-label control-label" >Email d'utilisateur</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" placeholder="tapez email de client" name="username" required [(ngModel)]="client.username">
+        <input type="text" class="form-control" placeholder="tapez l'email du client" name="username" required [(ngModel)]="client.username" formControlName="username" >
+        <div *ngIf="rForm.controls['username'].invalid && rForm.controls['username'].touched" class="alert alert-warning">champ obligatoire</div>
       </div>
     </div>
+
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">mot de passe</label>
       <div class="col-sm-10">
-        <input type="password" class="form-control" placeholder="tapez le mot de passe  client" name="username" required [(ngModel)]="client.password" >
+        <input type="password" class="form-control" placeholder="tapez le mot de passe du client" name="password" required [(ngModel)]="client.password"  minlength="4" formControlName="password" >
+        <div *ngIf="rForm.controls['password'].invalid && rForm.controls['password'].touched" class="alert alert-warning" >champ obligatoire. Le mot de passe doit être de 4 caractères minimum</div>
       </div>
     </div>
+
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">nom </label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" placeholder="tapez le nom de client " name="username" required [(ngModel)]="client.nom" >
+        <input type="text"  class="form-control" placeholder="tapez le nom du client " name="nom" required [(ngModel)]="client.nom"  formControlName="nom" >
+        <div *ngIf="rForm.controls['nom'].invalid && rForm.controls['nom'].touched" class="alert alert-warning">champ obligatoire</div>
       </div>
     </div>
+
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">prenom</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" placeholder="tapez le prenom de client" name="username" required [(ngModel)]="client.prenom">
+        <input type="text" class="form-control" placeholder="tapez le prénom du client" name="prenom" required [(ngModel)]="client.prenom"  formControlName="prenom">
+        <div *ngIf="rForm.controls['prenom'].invalid && rForm.controls['prenom'].touched" class="alert alert-warning">champ obligatoire</div>
       </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">adresse</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" placeholder="tapez l'adresse de client" name="username" required [(ngModel)]="client.adresse" >
-      </div>
-    </div>
-    <div class="form-group row">
-      <label class="col-sm-2 col-form-label">numero telephone</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" placeholder="Taper le numero telephone de client" name="username" required [(ngModel)]="client.numTel">
+        <input type="text" class="form-control" placeholder="tapez l'adresse du client" name="adresse" required [(ngModel)]="client.adresse" formControlName="adresse" >
+        <div *ngIf="rForm.controls['adresse'].invalid && rForm.controls['adresse'].touched" class="alert alert-warning">champ obligatoire</div>
       </div>
     </div>
 
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">numero telephone</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" minlength="8" placeholder="Taper le numero téléphone du client" name="numTel" required [(ngModel)]="client.numTel" formControlName="numTel"  >
+        <div *ngIf="rForm.controls['numTel'].invalid && rForm.controls['numTel'].touched" class="alert alert-warning">champ obligatoire</div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">solde</label>
+      <div class="col-sm-10">
+        <input type="number" min="0" class="form-control"  placeholder="Taper le solde de client " name="solde" required [(ngModel)]="client.solde" formControlName="solde"  >
+        <div *ngIf="rForm.controls['numTel'].invalid && rForm.controls['numTel'].touched" class="alert alert-warning">champ obligatoire</div>
+      </div>
+    </div>
 
 
 
     <div class="text-right">
-      <button type="submit"  class="btn btn-primary btn-lg" >ajouter</button>
+      <button type="submit" [disabled]="!rForm.valid"  class="btn btn-primary btn-lg" >ajouter</button>
     </div>
 
   </form>

@@ -16,12 +16,14 @@ clients;
   client: Client=new Client();
   errorMessage:string;
   constructor(private request:RequestsService,private data:DataService,private router:Router,private _flashMessagesService: FlashMessagesService) {
-    this.request.get('http://localhost:8091/client/valid').subscribe(data => {
-      console.log(data);this.clients=data.json();
-    });
+
   }
 
   ngOnInit() {
+    this.request.get('http://localhost:8091/client/valid').subscribe(data => {
+      console.log(data);this.clients=data.json();
+    });
+
   }
 
 
@@ -34,10 +36,13 @@ clients;
 
 deleteclient(client)
 {this.client=client;
-  this.request.post('http://localhost:8091/client/valid',client).subscribe()
+  this.request.post('http://localhost:8091/client/delete',client).subscribe()
   this.errorMessage="client est supprimé";
-  this._flashMessagesService.show(this.errorMessage.toString(), { cssClass: 'alert-danger', timeout: 3000 });
+  this.ngOnInit();
+  this.ngOnInit();
 }
+
+
 
 
 

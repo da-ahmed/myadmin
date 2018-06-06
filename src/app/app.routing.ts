@@ -16,6 +16,9 @@ import {UpadatevehicleComponent} from './upadatevehicle/upadatevehicle.component
 import {LstcompteComponent} from './lstcompte/lstcompte.component';
 import {LstinvcompteComponent} from './lstinvcompte/lstinvcompte.component';
 import {UpdatecompteComponent} from './updatecompte/updatecompte.component';
+import {TrannsactionsComponent} from './trannsactions/trannsactions.component';
+import {LstdestinationComponent} from './lstdestination/lstdestination.component';
+import {UpdatedestinationComponent} from './updatedestination/updatedestination.component';
 
 
 export const AppRoutes: Routes = [
@@ -54,13 +57,19 @@ export const AppRoutes: Routes = [
       component: DestinationComponent//,canActivate :[AuthGuard]
     },{
       path:'destination/list',
-      component:LsdestinationComponent//,canActivate :[AuthGuard]
+      component:LstdestinationComponent//,canActivate :[AuthGuard]
+    },{
+      path:'destination/update',
+      component:UpdatedestinationComponent//,canActivate :[AuthGuard]
     },{
       path:'search',
       component:SearchsComponent//,canActivate :[AuthGuard]
     },{
       path:'vehicle/update',
-      component:UpadatevehicleComponent //,canActivate :[AuthGuard]
+      component:UpadatevehicleComponent// ,canActivate :[AuthGuard]
+    },{
+      path:'transaction',
+      component:TrannsactionsComponent //,canActivate :[AuthGuard]
     }
 
 

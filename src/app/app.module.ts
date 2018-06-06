@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import  {JsonpModule} from '@angular/http';
 
@@ -37,6 +37,10 @@ import {TokenService} from './service/token.service';
 import { LstcompteComponent } from './lstcompte/lstcompte.component';
 import { LstinvcompteComponent } from './lstinvcompte/lstinvcompte.component';
 import { UpdatecompteComponent } from './updatecompte/updatecompte.component';
+import { LstdestinationComponent } from './lstdestination/lstdestination.component';
+import { UpdatedestinationComponent } from './updatedestination/updatedestination.component';
+import { TrannsactionsComponent } from './trannsactions/trannsactions.component';
+
 
 
 
@@ -60,6 +64,10 @@ import { UpdatecompteComponent } from './updatecompte/updatecompte.component';
     LstcompteComponent,
     LstinvcompteComponent,
     UpdatecompteComponent,
+    LstdestinationComponent,
+    UpdatedestinationComponent,
+    TrannsactionsComponent
+
 
 
 
@@ -67,7 +75,7 @@ import { UpdatecompteComponent } from './updatecompte/updatecompte.component';
 
   ],
   imports: [
-
+    ReactiveFormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,

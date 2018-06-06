@@ -1,5 +1,5 @@
 <!-- Basic table card start -->
-<app-card [title]="'Basic table'" [classHeader]="false" [blockClass]="'table-border-style'" >
+<app-card [title]="'table des comptes invalide '" [classHeader]="false" [blockClass]="'table-border-style'" >
   <span class="code-header">use class <code>table</code> inside table element</span>
   <div class="table-responsive">
     <table class="table" >
@@ -21,7 +21,7 @@
         <td>{{c.prenom}}</td>
         <td>{{c.adresse}}</td>
         <td>{{c.numTel}}</td>
-        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs"  (click)="updatevehicle(vehicle)" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="fa fa-check"></span></button></p></td>
+        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs"  (click)="valid(c)" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="fa fa-check"></span></button></p></td>
       </tr>
 
       </tbody>

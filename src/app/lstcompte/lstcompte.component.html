@@ -1,4 +1,4 @@
-<app-card [title]="'Basic table'" [classHeader]="false" [blockClass]="'table-border-style'" >
+<app-card [title]="'table des comptes '" [classHeader]="false" [blockClass]="'table-border-style'" >
   <span class="code-header">use class <code>table</code> inside table element</span>
   <div class="table-responsive">
     <table class="table" >
@@ -10,6 +10,7 @@
         <th>Prenom</th>
         <th>Adresse</th>
         <th>Numero telephone</th>
+        <th>Solde</th>
         <th>Modifier</th>
         <th>supprimer</th>
 
@@ -23,8 +24,9 @@
         <td>{{c.prenom}}</td>
         <td>{{c.adresse}}</td>
         <td>{{c.numTel}}</td>
+        <td>{{c.solde}}</td>
         <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs"  (click)="updateClient(c)" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="fa fa-edit"></span></button></p></td>
-        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs"   (click)="deletevehicle(c)" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="fa fa-trash"></span></button></p></td>
+        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs"   (click)="deleteclient(c)" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="fa fa-trash"></span></button></p></td>
       </tr>
 
       </tbody>
