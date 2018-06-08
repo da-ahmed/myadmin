@@ -48,7 +48,8 @@ console.log(this.vehicle);
     console.log(this.vehicle)
     this.reqservice.post('http://localhost:8091/vehicle/add',this.vehicle).subscribe()
     this.errorMessage="véhicule modifié avec succès";
-    this._flashMessagesService.show(this.errorMessage.toString(), { cssClass: 'alert-success', timeout: 3000 });
+    this._flashMessagesService.show(this.errorMessage.toString(), { cssClass: 'alert-success', timeout: 1000 });
+    this.data.changeMessage(null)
 
   }
 

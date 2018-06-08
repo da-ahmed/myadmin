@@ -76,7 +76,7 @@
                 </li>
 
                 <li [routerLinkActive]="['active']" *ngIf="asideItem.type === 'link'" appAccordionLink group="{{asideItem.state}}">
-                  <a [routerLink]="['/', asideItem.main_state, asideItem.state]" target="{{asideItem.target ? '_blank' : '_self'}}" appAccordionToggle *ngIf="asideItem.main_state; else: mainContent">
+                  <a [routerLink]="['/', asideItem.main_state, asideItem.state]" target="{{asideItem.target ? '_blank' : '_self'}}" appAccordionToggle *ngIf="asideItem.main_state; else mainContent">
                     <span class="pcoded-micon"><i class="{{ asideItem.icon }}"></i></span>
                     <span class="pcoded-mtext">{{ asideItem.name }}</span>
                     <span *ngFor="let asideBadge of asideItem.badge" class="pcoded-badge label label-{{ asideBadge.type }}">{{asideBadge.value}}</span>
@@ -154,18 +154,3 @@
     </div>
   </div>
 </div>
-<go-top-button [html]="htmlButton"
-               [animate]="true"
-               [speed]="50"
-               [acceleration]="2"
-               [scrollDistance]="100"
-               [styles]="{
-                    'right': '50px',
-                    'bottom': '50px',
-                    'top': 'auto',
-                    'left': 'auto',
-                    'width': 'auto',
-                    'height': 'auto',
-                    'background' : 'transparent'
-                 }">
-</go-top-button>

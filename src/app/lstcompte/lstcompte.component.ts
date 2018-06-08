@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, OnDestroy, ChangeDetectorRef} from '@angular/core';
 import {RequestsService} from '../service/requests.service';
 import {Vehicle} from '../models/Vehicle';
 import {Client} from '../models/Client';
@@ -11,11 +11,11 @@ import {FlashMessagesService} from 'angular2-flash-messages';
   templateUrl: './lstcompte.component.html',
   styleUrls: ['./lstcompte.component.css']
 })
-export class LstcompteComponent implements OnInit {
+export class LstcompteComponent implements OnInit , OnDestroy{
 clients;
   client: Client=new Client();
   errorMessage:string;
-  constructor(private request:RequestsService,private data:DataService,private router:Router,private _flashMessagesService: FlashMessagesService) {
+  constructor(private request:RequestsService,private data:DataService,private router:Router,private _flashMessagesService: FlashMessagesService,private cdRef: ChangeDetectorRef) {
 
   }
 
@@ -23,7 +23,7 @@ clients;
     this.request.get('http://localhost:8091/client/valid').subscribe(data => {
       console.log(data);this.clients=data.json();
     });
-
+    this.data.changeMessage(null);
   }
 
 
@@ -36,14 +36,15 @@ clients;
 
 deleteclient(client)
 {this.client=client;
-  this.request.post('http://localhost:8091/client/delete',client).subscribe()
-  this.errorMessage="client est supprimé";
+  this.request.post('http://localhost:8091/client/delete',this.client).subscribe(data=>console.log(data))
   this.ngOnInit();
   this.ngOnInit();
 }
 
-
-
-
+  ngOnDestroy() {
+    this.cdRef.detach(); // try this
+    // for me I was detect changes inside "subscribe" so was enough for me to just unsubscribe;
+    // this..unsubscribe();
+  }
 
 }

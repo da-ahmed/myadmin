@@ -1,0 +1,42 @@
+
+<app-card [title]="'table des destination'" [classHeader]="false" [blockClass]="'table-border-style'" >
+  <span class="code-header">use class <code>table</code> inside table element</span>
+  <div class="table-responsive" style="min-height:500px">
+    <table class="table" >
+      <thead>
+      <tr>
+
+        <th>Aéroport de depart</th>
+        <th>Ville d'arriver</th>
+        <th>distance</th>
+        <th>Prix d'adultes</th>
+        <th>Prix d'enfant</th>
+        <th>Prix de bébé</th>
+        <th>Modifier</th>
+        <th>Suprimer</th>
+
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr *ngFor="let c of destination">
+        <td>{{c.airport.nom}}</td>
+        <td>{{c.town.nom}}</td>
+        <td>{{c.distance}}</td>
+        <td>{{c.prixAdult}}</td>
+        <td>{{c.prixEnfant}}</td>
+        <td>{{c.prixBebe}}</td>
+        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs"  (click)=" updatevehicle(c)"  data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="fa fa-edit"></span></button></p></td>
+        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" (click)="deleteclient(c)"    data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="fa fa-trash"></span></button></p></td>
+      </tr>
+
+
+
+      </tbody>
+    </table>
+  </div>
+</app-card>
+<!-- Basic table card end -->
+
+
+

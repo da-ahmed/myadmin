@@ -40,9 +40,9 @@ id:number;
     });
 
     this.rForm = fb.group({
-      'immatricule': [null, Validators.compose([Validators.required])],
-      'model': [null, Validators.compose([Validators.required])],
-      'contact': [null, Validators.compose([Validators.required,])],
+      'immatricule': [null, Validators.compose([Validators.required,Validators.minLength(3)])],
+      'model': [null, Validators.compose([Validators.required,Validators.minLength(3)])],
+      'contact': [null, Validators.compose([Validators.required,Validators.minLength(8)])],
 
     })
   }
@@ -72,10 +72,10 @@ id:number;
     console.log(this.vehicle)
     this.reqservice.post('http://localhost:8091/vehicle/add',this.vehicle).subscribe(data =>{
       this.errorMessage="success : Véhicule est ajouté";
-      this._flashMessagesService.show(this.errorMessage.toString(), { cssClass: 'alert-success', timeout: 3000 });
+      this._flashMessagesService.show(this.errorMessage.toString(), { cssClass: 'alert-success', timeout: 1111 });
     },err=>{
       this.errorMessage="error :  erreur: matricule existe déjà";
-      this._flashMessagesService.show(this.errorMessage.toString(), { cssClass: 'alert-danger', timeout: 3000 });
+      this._flashMessagesService.show(this.errorMessage.toString(), { cssClass: 'alert-danger', timeout: 1111 });
     })
     console.log(this.vehicle);
 

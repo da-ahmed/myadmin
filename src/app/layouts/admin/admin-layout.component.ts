@@ -18,20 +18,20 @@ export interface Options {
   encapsulation: ViewEncapsulation.None,
   animations: [
     trigger('mobileMenuTop', [
-        state('no-block, void',
-            style({
-                overflow: 'hidden',
-                height: '0px',
-            })
-        ),
-        state('yes-block',
-            style({
-                height: AUTO_STYLE,
-            })
-        ),
-        transition('no-block <=> yes-block', [
-            animate('400ms ease-in-out')
-        ])
+      state('no-block, void',
+        style({
+          overflow: 'hidden',
+          height: '0px',
+        })
+      ),
+      state('yes-block',
+        style({
+          height: AUTO_STYLE,
+        })
+      ),
+      transition('no-block <=> yes-block', [
+        animate('400ms ease-in-out')
+      ])
     ])
   ]
 })
@@ -47,7 +47,7 @@ export class AdminLayoutComponent implements OnInit {
   windowWidth: number;
 
   public htmlButton: string;
-localstorage=localStorage;
+  localstorage=localStorage;
   constructor(public menuItems: MenuItems,private authService : AuthService,private router:Router) {
     const scrollHeight = window.screen.height - 150;
     this.innerHeight = scrollHeight + 'px';
@@ -60,10 +60,10 @@ localstorage=localStorage;
   ngOnInit() {}
 
   onClickedOutside(e: Event) {
-      if (this.windowWidth < 768 && this.toggleOn && this.verticalNavType !== 'offcanvas') {
-          this.toggleOn = true;
-          this.verticalNavType = 'offcanvas';
-      }
+    if (this.windowWidth < 768 && this.toggleOn && this.verticalNavType !== 'offcanvas') {
+      this.toggleOn = true;
+      this.verticalNavType = 'offcanvas';
+    }
   }
 
   onResize(event) {
@@ -83,27 +83,27 @@ localstorage=localStorage;
   }
 
   setMenuAttributs(windowWidth) {
-      if (windowWidth >= 768 && windowWidth <= 1024) {
-        this.deviceType = 'tablet';
-        this.verticalNavType = 'collapsed';
-        this.verticalEffect = 'push';
-      } else if (windowWidth < 768) {
-        this.deviceType = 'mobile';
-        this.verticalNavType = 'offcanvas';
-        this.verticalEffect = 'overlay';
-      } else {
-        this.deviceType = 'desktop';
-        this.verticalNavType = 'expanded';
-        this.verticalEffect = 'shrink';
-      }
+    if (windowWidth >= 768 && windowWidth <= 1024) {
+      this.deviceType = 'tablet';
+      this.verticalNavType = 'collapsed';
+      this.verticalEffect = 'push';
+    } else if (windowWidth < 768) {
+      this.deviceType = 'mobile';
+      this.verticalNavType = 'offcanvas';
+      this.verticalEffect = 'overlay';
+    } else {
+      this.deviceType = 'desktop';
+      this.verticalNavType = 'expanded';
+      this.verticalEffect = 'shrink';
+    }
   }
 
   toggleOpened() {
     if (this.windowWidth < 768) {
-        this.toggleOn = this.verticalNavType === 'offcanvas' ? true : this.toggleOn;
-        this.verticalNavType = this.verticalNavType === 'expanded' ? 'offcanvas' : 'expanded';
+      this.toggleOn = this.verticalNavType === 'offcanvas' ? true : this.toggleOn;
+      this.verticalNavType = this.verticalNavType === 'expanded' ? 'offcanvas' : 'expanded';
     } else {
-        this.verticalNavType = this.verticalNavType === 'expanded' ? 'collapsed' : 'expanded';
+      this.verticalNavType = this.verticalNavType === 'expanded' ? 'collapsed' : 'expanded';
     }
   }
 
@@ -116,8 +116,8 @@ localstorage=localStorage;
   }
 
   onlogout(){
-  this.authService.logOut();
-  this.localstorage.removeItem('currentUser')
+    this.authService.logOut();
+    this.localstorage.removeItem('currentUser')
 
   }
 }

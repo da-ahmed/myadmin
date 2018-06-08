@@ -26,7 +26,7 @@ import {AuthService} from './service/auth.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FlashMessagesModule} from 'angular2-flash-messages';
 import { SearchsComponent } from './searchs/searchs.component';
-import { LsdestinationComponent } from './lsdestination/lsdestination.component';
+
 import { DestinationComponent } from './destination/destination.component';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
 
@@ -58,7 +58,6 @@ import { TrannsactionsComponent } from './trannsactions/trannsactions.component'
     LockScreenComponent,
     ForgotComponent,
     SearchsComponent,
-    LsdestinationComponent,
     DestinationComponent,
     UpadatevehicleComponent,
     LstcompteComponent,

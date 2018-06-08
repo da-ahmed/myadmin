@@ -10,7 +10,6 @@ import {ForgotComponent} from './forgot/forgot.component';
 import {LockScreenComponent} from './lock-screen/lock-screen.component';
 import {LoginComponent} from './login/login.component';
 import {DestinationComponent} from './destination/destination.component';
-import {LsdestinationComponent} from './lsdestination/lsdestination.component';
 import {SearchsComponent} from './searchs/searchs.component';
 import {UpadatevehicleComponent} from './upadatevehicle/upadatevehicle.component';
 import {LstcompteComponent} from './lstcompte/lstcompte.component';
@@ -39,7 +38,7 @@ export const AppRoutes: Routes = [
       component: VehicleComponent//,canActivate :[AuthGuard]
     },{
       path:'account/list',
-      component: LstcompteComponent//,canActivate :[AuthGuard]
+      component: LstcompteComponent//,canActivate :[AuthGuard]a
     },{
       path:'account/add',
       component: AccountComponent//,canActivate :[AuthGuard]
@@ -57,7 +56,7 @@ export const AppRoutes: Routes = [
       component: DestinationComponent//,canActivate :[AuthGuard]
     },{
       path:'destination/list',
-      component:LstdestinationComponent//,canActivate :[AuthGuard]
+      component: LstdestinationComponent//,canActivate :[AuthGuard]
     },{
       path:'destination/update',
       component:UpdatedestinationComponent//,canActivate :[AuthGuard]

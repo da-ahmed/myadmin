@@ -1,9 +1,8 @@
 
-
 <app-card >
   <flash-messages></flash-messages>
 
-  <form [formGroup]="bForm"  (ngSubmit)="addclient(air.value,tw.value)">
+  <form [formGroup]="bForm"  (ngSubmit)="update(air.value,tw.value)">
 
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Aéroport de depart</label>
@@ -57,7 +56,7 @@
     </div>
 
     <div class="text-right">
-      <button type="number"  [disabled]="!bForm.valid" class="btn btn-primary btn-lg" >ajouter</button>
+      <button type="number"  [disabled]="!bForm.valid" class="btn btn-primary btn-lg" >Modifier</button>
     </div>
 
   </form>

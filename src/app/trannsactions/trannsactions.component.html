@@ -1,0 +1,67 @@
+<app-card [title]="'trier par client'">
+<flash-messages></flash-messages>
+  <div class="form-group row">
+
+    <div class="col-sm-10">
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Nom d'utilisateur</label>
+        <div class="col-sm-10">
+          <select  name="select" class="form-control" #cat>
+            <option *ngFor="let c of clients" [value]="c.username">{{c.username}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+
+    <div class="col-sm-10">
+      <button type="button" (click)="trier(cat.value)" class="btn btn-primary btn-lg" >Trier</button>
+      <button type="button" (click)="ngOnInit()"  class="btn btn-primary btn-lg" >tous les client</button>
+    </div>
+  </div>
+</app-card>
+
+<app-card [title]="'table des transaction'" [classHeader]="false" [blockClass]="'table-border-style'" >
+  <span class="code-header">use class <code>table</code> inside table element</span>
+  <div class="table-responsive">
+    <table class="table" >
+      <thead>
+      <tr>
+
+        <th>Date de transaction</th>
+        <th>Aéroport de depart</th>
+        <th>Ville d'arriver</th>
+        <th>Nombre des adultes</th>
+        <th>Nombre des enfants</th>
+        <th>Nombre des bébés</th>
+        <th>Prix</th>
+        <th>Nom de client</th>
+        <th>Catégorie de véhicule</th>
+
+
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr *ngFor="let t of trnasactions">
+        <td>{{t.dateTransaction}}</td>
+        <td>{{t.from.nom}}</td>
+        <td>{{t.to.nom}}</td>
+        <td>{{t.adult}}</td>
+        <td>{{t.enfant}}</td>
+        <td>{{t.bebe}}</td>
+        <td>{{t.prix}}</td>
+        <td>{{t.username}}</td>
+        <td>{{t.type}}</td>
+        <td></td>
+      </tr>
+
+
+
+      </tbody>
+    </table>
+  </div>
+</app-card>
+<!-- Basic table card end -->

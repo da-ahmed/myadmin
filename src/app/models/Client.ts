@@ -8,7 +8,7 @@ export class Client {
   prenom: string="";
   adresse: string="";
   numTel: number;
-  solde: number;
+  solde: number=0;
 
 
 }

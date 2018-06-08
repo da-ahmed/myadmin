@@ -24,7 +24,7 @@
         <td>{{vehicle.immatricule}}</td>
         <td>{{vehicle.model}}</td>
         <td>{{vehicle.contact_Info }}</td>
-        <td>{{vehicle.type}}</td>
+        <td>{{vehicle.vehiculeCategorie.type}}</td>
         <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs"  (click)="updatevehicle(vehicle)" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="fa fa-edit"></span></button></p></td>
         <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs"   (click)="deletevehicle(vehicle.id_vehicle)" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="fa fa-trash"></span></button></p></td>
       </tr>
