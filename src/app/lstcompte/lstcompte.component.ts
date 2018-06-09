@@ -23,7 +23,7 @@ clients;
     this.request.get('http://localhost:8091/client/valid').subscribe(data => {
       console.log(data);this.clients=data.json();
     });
-    this.data.changeMessage(null);
+
   }
 
 

@@ -50,7 +50,7 @@ export class DestinationComponent implements OnInit {
 
 
 
-  addclient(air,tow)
+  adddesti(air,tow)
   {
     this.airport.code=air;
     this.town.id=tow;
@@ -64,6 +64,7 @@ export class DestinationComponent implements OnInit {
       console.log(data);
     });
 
+
   }
 
 
@@ -73,7 +74,17 @@ export class DestinationComponent implements OnInit {
 
 
 
+  add(air,tow)
+  {
+    this.airport.code=air;
+    this.town.id=tow;
+    this.direction.airport=this.airport;
+    this.direction.town=this.town;
+    this.request.post('http://localhost:8091/direction/add',this.direction).subscribe();
+    this.errorMessage="destination ajouté avec succès";
+    this._flashMessagesService.show(this.errorMessage.toString(), { cssClass: 'alert-success', timeout:1000 });
 
+  }
 
 
 

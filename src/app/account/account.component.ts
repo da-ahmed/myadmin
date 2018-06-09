@@ -37,7 +37,11 @@ export class AccountComponent implements OnInit {
     console.log(this.client)
 this.request.post('http://localhost:8091/client/add',this.client).subscribe(data=>{
   this.errorMessage="client ajouté avec succès";
-  this._flashMessagesService.show(this.errorMessage.toString(), { cssClass: 'alert-success', timeout: 1000 });});
+  this._flashMessagesService.show(this.errorMessage.toString(), { cssClass: 'alert-success', timeout: 1000 });},err=>{
+    this.errorMessage="error :  cette adresse email est déjà utilisée";
+    this._flashMessagesService.show("erreur: nom d'utilisateur ou mot de passe incorrect", { cssClass: 'alert-danger', timeout: 1555 });
+  }
+  );
 
   }
 }

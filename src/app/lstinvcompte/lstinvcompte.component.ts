@@ -27,16 +27,12 @@ export class LstinvcompteComponent implements OnInit {
 
   valid(client)
   {this.client=client;
-    this.request.post('http://localhost:8091/client/add',client)
+    console.log(this.client)
+    this.request.post('http://localhost:8091/client/add',client).subscribe()
     this.ngOnInit();
     this.ngOnInit();
   }
 
 
-  ngOnDestroy() {
-    this.cdRef.detach(); // try this
-    // for me I was detect changes inside "subscribe" so was enough for me to just unsubscribe;
-    // this.authObserver.unsubscribe();
-  }
 
 }

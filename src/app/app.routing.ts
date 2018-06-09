@@ -32,43 +32,43 @@ export const AppRoutes: Routes = [
   children: [
      {
        path:'',
-       component: LstvehicleComponent//,canActivate :[AuthGuard]
+       component: LstvehicleComponent,canActivate :[AuthGuard]
     },{
       path:'vehicle/add',
-      component: VehicleComponent//,canActivate :[AuthGuard]
+      component: VehicleComponent,canActivate :[AuthGuard]
     },{
       path:'account/list',
-      component: LstcompteComponent//,canActivate :[AuthGuard]a
+      component: LstcompteComponent,canActivate :[AuthGuard]
     },{
       path:'account/add',
-      component: AccountComponent//,canActivate :[AuthGuard]
+      component: AccountComponent,canActivate :[AuthGuard]
     },{
       path:'account/invalid',
-      component: LstinvcompteComponent//,canActivate :[AuthGuard]
+      component: LstinvcompteComponent,canActivate :[AuthGuard]
     },{
       path:'account/update',
-      component: UpdatecompteComponent//,canActivate :[AuthGuard]
+      component: UpdatecompteComponent,canActivate :[AuthGuard]
     },{
       path:'vehicle/list',
-      component: LstvehicleComponent//,canActivate :[AuthGuard]
+      component: LstvehicleComponent,canActivate :[AuthGuard]
     },{
       path:'destination/add',
-      component: DestinationComponent//,canActivate :[AuthGuard]
+      component: DestinationComponent,canActivate :[AuthGuard]
     },{
       path:'destination/list',
-      component: LstdestinationComponent//,canActivate :[AuthGuard]
+      component: LstdestinationComponent,canActivate :[AuthGuard]
     },{
       path:'destination/update',
-      component:UpdatedestinationComponent//,canActivate :[AuthGuard]
+      component:UpdatedestinationComponent,canActivate :[AuthGuard]
     },{
       path:'search',
-      component:SearchsComponent//,canActivate :[AuthGuard]
+      component:SearchsComponent,canActivate :[AuthGuard]
     },{
       path:'vehicle/update',
-      component:UpadatevehicleComponent// ,canActivate :[AuthGuard]
+      component:UpadatevehicleComponent ,canActivate :[AuthGuard]
     },{
       path:'transaction',
-      component:TrannsactionsComponent //,canActivate :[AuthGuard]
+      component:TrannsactionsComponent ,canActivate :[AuthGuard]
     }
 
 
